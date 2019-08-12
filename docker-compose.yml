@@ -1,14 +1,14 @@
 version: '2.1'
 services:
     postgres:
-        image: asia.gcr.io/larisin/airflow-db:1.0
+        image: mragungsetiaji/airflow-db:1.0
         environment:
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
             - POSTGRES_DB=airflow
 
     webserver:
-        image: asia.gcr.io/larisin/airflow-webserver:1.0
+        image: mragungsetiaji/airflow-webserver:1.0
         restart: always
         depends_on:
             - postgres
