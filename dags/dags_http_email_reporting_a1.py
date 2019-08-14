@@ -36,6 +36,7 @@ default_args = {
     'email_on_retry': False,
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
+    'schedule_interval': '18 7 * *  1-5',
 }
 
 dag = DAG('email_report_a1', default_args=default_args)
@@ -45,56 +46,11 @@ dag.doc_md = __doc__
 # t1, t2 and t3 are examples of tasks created by instantiating operators
 t1 = SimpleHttpOperator(
     task_id='post_op',
-    endpoint='api/v1.0/nodes',
-    data=json.dumps({"priority": 5}),
+    endpoint='34.87.84.122:5000/report-a1',
+    data=json.dumps({"seller_name":"Toko Flamboyan", "entity_id":"E10AYAFLM", "receipt":"mragungsetiaji@gmail.com", "bcc":["agung.setiaji@larisin.id"], "filter_date":"today"}),
     headers={"Content-Type": "application/json"},
-    response_check=lambda response: len(response.json()) == 0,
+    #response_check=lambda response: len(response.json()) == 0,
     dag=dag,
 )
 
-t5 = SimpleHttpOperator(
-    task_id='post_op_formenc',
-    endpoint='nodes/url',
-    data="name=Joe",
-    headers={"Content-Type": "application/x-www-form-urlencoded"},
-    dag=dag,
-)
-
-t2 = SimpleHttpOperator(
-    task_id='get_op',
-    method='GET',
-    endpoint='api/v1.0/nodes',
-    data={"param1": "value1", "param2": "value2"},
-    headers={},
-    dag=dag,
-)
-
-t3 = SimpleHttpOperator(
-    task_id='put_op',
-    method='PUT',
-    endpoint='api/v1.0/nodes',
-    data=json.dumps({"priority": 5}),
-    headers={"Content-Type": "application/json"},
-    dag=dag,
-)
-
-t4 = SimpleHttpOperator(
-    task_id='del_op',
-    method='DELETE',
-    endpoint='api/v1.0/nodes',
-    data="some=data",
-    headers={"Content-Type": "application/x-www-form-urlencoded"},
-    dag=dag,
-)
-
-sensor = HttpSensor(
-    task_id='http_sensor_check',
-    http_conn_id='http_default',
-    endpoint='',
-    request_params={},
-    response_check=lambda response: "Google" in response.text,
-    poke_interval=5,
-    dag=dag,
-)
-
-sensor >> t1 >> t2 >> t3 >> t4 >> t5
+t1
