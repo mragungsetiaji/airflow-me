@@ -22,7 +22,7 @@ default_args = {
     'schedule_interval': '31 10 * * 1-6',
 }
 
-dag = DAG('report_a1_email_daily', default_args=default_args)
+dag = DAG('report_a1_email_daily_v2', default_args=default_args)
 dag.doc_md = __doc__
 
 t1 = SimpleHttpOperator(
