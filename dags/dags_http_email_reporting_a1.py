@@ -46,7 +46,7 @@ dag.doc_md = __doc__
 # t1, t2 and t3 are examples of tasks created by instantiating operators
 t1 = SimpleHttpOperator(
     task_id='daily_report_ws',
-    http_conn_id='http_kubernetes_report_api'
+    http_conn_id='http_kubernetes_report_api',
     endpoint='/report-a1',
     data=json.dumps({"seller_name":"Toko Flamboyan", "entity_id":"E10AYAFLM", "receipt":"mragungsetiaji@gmail.com", "bcc":["agung.setiaji@larisin.id"], "filter_date":"today"}),
     headers={"Content-Type": "application/json"},
