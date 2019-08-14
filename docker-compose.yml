@@ -13,7 +13,7 @@ services:
         depends_on:
             - postgres
         environment:
-            - LOAD_EX=y
+            - LOAD_EX=n
             - FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
             - EXECUTOR=Local
         volumes:
