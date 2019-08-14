@@ -53,7 +53,7 @@ t2 = SimpleHttpOperator(
     endpoint='/report-a1',
     data=json.dumps({
         "seller_name":"Toko Flamboyan", 
-        "entity_id":"E10AYANDC", 
+        "entity_id":"E10AYAFLM", 
         "receipt":"wi_vie@yahoo.co.id", 
         "bcc":[
             "agung.setiaji@larisin.id", 
