@@ -6,9 +6,9 @@ from airflow.contrib.operators.gcp_compute_operator import GceInstanceStartOpera
     GceInstanceStopOperator, GceSetMachineTypeOperator
 
 # [START howto_operator_gce_args_common]
-GCP_PROJECT_ID = os.environ.get('GCP_PROJECT_ID', 'example-project')
-GCE_ZONE = os.environ.get('GCE_ZONE', 'europe-west1-b')
-GCE_INSTANCE = os.environ.get('GCE_INSTANCE', 'testinstance')
+GCP_PROJECT_ID = os.environ.get('GCP_PROJECT_ID', 'sinuous-analog-238205')
+GCE_ZONE = os.environ.get('GCE_ZONE', 'asia-southeast1-c')
+GCE_INSTANCE = os.environ.get('GCE_INSTANCE', 'instance-1')
 # [END howto_operator_gce_args_common]
 
 default_args = {
