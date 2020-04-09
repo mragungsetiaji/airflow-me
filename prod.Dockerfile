@@ -20,7 +20,8 @@ COPY --from=tester /app /app
 
 WORKDIR /app
 
-ENTRYPOINT ["/venv/bin/python3", "-m", "blueprint"]
+ENV PORT 8080
+CMD ["gunicorn", "app:app", "--config=config.py"]
 USER 1001
 
 LABEL name={NAME}
