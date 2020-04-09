@@ -47,7 +47,7 @@ Test are ran every time you build _dev_ or _prod_ image. You can also run tests 
 ## Pushing to GitHub Package Registry
 
 ```console
-~ $ docker login docker.pkg.github.com --username MartinHeinz
+~ $ docker login docker.pkg.github.com --username mragungsetiaji
 Password: ...
 ...
 Login Succeeded
